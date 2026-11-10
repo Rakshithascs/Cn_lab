@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int d[4], h[8];
+    cout << "enter the 4 bits";
+    for (int i = 0; i < 4; i++) cin >> d[i];
+    h[3] = d[0];
+    h[5] = d[1];
+    h[6] = d[2];
+    h[7] = d[3];
+    h[1] = (h[3] + h[5] + h[7]) % 2;
+    h[2] = (h[3] + h[6] + h[7]) % 2;
+    h[4] = (h[5] + h[6] + h[7]) % 2;
+    cout << "codes:";
+    for (int i = 1; i <= 7; i++) cout << h[i];
+    int p;
+    cout << "\nError pos:";
+    cin >> p;
+    if (p) h[p] = !h[p];
+    int e = (h[1] + h[3] + h[5] + h[7]) % 2 
+      + ((h[2] + h[3] + h[6] + h[7]) % 2) * 2
+      + ((h[4] + h[5] + h[6] + h[7]) % 2) * 4;
+    if (e == 0) {
+        cout << "NO ERROR";
+    } else {
+        h[e] = !h[e];
+        cout << "error at" << e << "corrected:";
+        for (int i = 1; i <= 7; i++) cout << h[i];
+    }
+}
