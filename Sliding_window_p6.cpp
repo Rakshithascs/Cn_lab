@@ -1,24 +1,27 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
+
 int main() {
     int n, w, i, ack;
-    printf("Enter total frames: ");
-    scanf("%d", &n);
-    printf("Enter window size: ");
-    scanf("%d", &w);
+    cout << "Enter total frames: ";
+    cin >> n;
+    cout << "Enter window size: ";
+    cin >> w;
+
     for (i = 1; i <= n; i++) {
-        printf("Frame %d Sent\n", i);
+        cout << "Frame " << i << " Sent" << endl;
         if (i % w == 0 || i == n) {
-            printf("Waiting for ACK...\n");
-            printf("Enter ACK for frame %d: ", i);
-            scanf("%d", &ack);
+            cout << "Waiting for ACK..." << endl;
+            cout << "Enter ACK for frame " << i << ": ";
+            cin >> ack;
             if (ack == i)
-                printf("ACK %d Received, Window Slides\n\n", ack);
+                cout << "ACK " << ack << " Received, Window Slides\n" << endl;
             else {
-                printf("ACK %d Lost, Resending from %d\n\n", ack, ack + 1);
+                cout << "ACK " << ack << " Lost, Resending from " << ack + 1 << "\n" << endl;
                 i = ack;
             }
         }
     }
-    printf("All Frames Sent Successfully\n");
+    cout << "All Frames Sent Successfully" << endl;
     return 0;
 }
