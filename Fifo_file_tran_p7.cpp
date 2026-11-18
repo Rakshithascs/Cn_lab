@@ -39,4 +39,5 @@ int main() {
     while ((n = read(r, b, 1024)) > 0)
         fwrite(b, 1, n, fp);
     printf("File Received\n");
+    printf(" to see file content : use cat command\n") ;
 }
