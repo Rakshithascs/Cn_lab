@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <iostream>
 #include <netdb.h>
 #include <arpa/inet.h>
+using namespace std;
 
 int main()
 {
@@ -8,25 +9,25 @@ int main()
     struct hostent *p;
     struct in_addr **a;
 
-    printf("Enter the domain name: ");
-    scanf("%99s", h);
+    cout << "Enter the domain name: ";
+    cin >> h;
 
     p = gethostbyname(h);
 
     if (p == NULL)
     {
-        printf("DNS lookup failed.\n");
+        cout << "DNS lookup failed." << endl;
         return 1;
     }
 
-    printf("\nHost Name: %s\n", p->h_name);
-    printf("IP Address: ");
+    cout << "\nHost Name: " << p->h_name << endl;
+    cout << "IP Address: ";
 
     a = (struct in_addr **)p->h_addr_list;
 
     if (a[0] != NULL)
     {
-        printf("%s\n", inet_ntoa(*a[0]));
+        cout << inet_ntoa(*a[0]) << endl;
     }
 
     return 0;
