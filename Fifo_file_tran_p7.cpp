@@ -9,6 +9,7 @@ int main() {
     FILE *fp;
     mkfifo("fifo1", 0666);
     mkfifo("fifo2", 0666);
+    printf("waiting....\n");
     r = open("fifo1", O_RDONLY);
     w = open("fifo2", O_WRONLY);
     read(r, f, 100);
