@@ -1,27 +1,31 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     int n, w, i, ack;
-    cout << "Enter total frames: ";
+
+    cout << "enter the total frame: ";
     cin >> n;
-    cout << "Enter window size: ";
+    cout << "window size: ";
     cin >> w;
 
     for (i = 1; i <= n; i++) {
-        cout << "Frame " << i << " Sent" << endl;
+        cout << "frames " << i << " sent" << endl;
+
         if (i % w == 0 || i == n) {
-            cout << "Waiting for ACK..." << endl;
-            cout << "Enter ACK for frame " << i << ": ";
+            cout << "waiting for ack...." << endl;
+            cout << "enter ack for frame: " << i << " : ";
             cin >> ack;
-            if (ack == i)
-                cout << "ACK " << ack << " Received, Window Slides\n" << endl;
-            else {
-                cout << "ACK " << ack << " Lost, Resending from " << ack + 1 << "\n" << endl;
+
+            if (ack == i) {
+                cout << "ack " << ack << " recieved, window sliding" << endl;
+            } else {
+                cout << "ack " << ack << " lost, resend from " << ack + 1 << endl;
                 i = ack;
             }
         }
     }
-    cout << "All Frames Sent Successfully" << endl;
+
+    cout << "successfully sent" << endl;
     return 0;
 }
