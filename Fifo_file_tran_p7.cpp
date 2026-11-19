@@ -3,6 +3,7 @@ Server:--
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/stat.h>
 int main() {
     int r, w, n;
     char f[100], b[1024];
@@ -24,6 +25,7 @@ Client :----
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/stat.h>
 int main() {
     int r, w, n;
     char f[100], b[1024];
